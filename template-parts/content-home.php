@@ -9,7 +9,6 @@
                         <a href="#" class="sec-btn" title="Call now"><span>Call now</span></a>
                         <a href="#" class="sec-btn" title="Contact Us"><span>Contact Us</span></a>
                     </div>
-
                 </div>
             </div>
         </div>
