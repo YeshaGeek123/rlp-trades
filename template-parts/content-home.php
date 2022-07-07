@@ -1,13 +1,19 @@
 <!-- banner sec start -->
-<section class="banner" style="background-image: url('<?php echo home_url();?>/wp-content/uploads/2022/07/banner-bg.jpg');">
+<section class="banner" style="background-image: url('<?php the_field('home_banner_image'); ?>');">
     <div class="container">
         <div class="row">
             <div class="col-lg-7">
                 <div class="banner-content">
-                        <h1 class="h1-title">Quality Work Done Right</h1>
+                        <h1 class="h1-title"><?php the_field('home_banner_slogan'); ?></h1>
+                        <?php
+                            $phone = get_field('phone_number','option');
+                            $val = array(" ", "-");
+                            $replace = array("", "");
+                            $phone_link = str_replace($val, $replace, $phone);
+                        ?>
                     <div class="banner-btn">
-                        <a href="#" class="sec-btn" title="Call now"><span>Call now</span></a>
-                        <a href="#" class="sec-btn" title="Contact Us"><span>Contact Us</span></a>
+                        <a href="tel:<?php echo $phone_link; ?>" class="sec-btn" title="Call now"><span>Call now</span></a>
+                        <a href="<?php the_field('home_contact_us_link'); ?>" class="sec-btn" title="Contact Us"><span>Contact Us</span></a>
                     </div>
                 </div>
             </div>
@@ -16,19 +22,18 @@
             <div class="row no-gutters ">
                 <div class="col-lg-12">
                     <div class="title">
-                        <h2 class="h2-title" data-title="About"> About Us</h2>
+                        <h2 class="h2-title" data-title="About"><?php the_field('about_us_title'); ?></h2>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="about-img">
-                        <div class="back-img" style="background-image: url('<?php echo home_url();?>/wp-content/uploads/2022/07/about-img.jpg');">
+                        <div class="back-img" style="background-image: url('<?php the_field('about_us_image'); ?>');">
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-5">
                     <div class="about-text white-text">
-                        <p>With over twenty years in the construction industry, RLP Trades LLC is a team of dedicated professionals offering commercial concrete, asphalt paving, industrial painting, and demolition services</p>
-                        <p>We work with municipalities, retail businesses, industrial and financial institutions, prioritizing integrity, commitment, and optimal client satisfaction.</p>
+                        <?php the_field('about_us_content'); ?>
                     </div>
                 </div>
             </div>
@@ -38,101 +43,47 @@
 </section>
 <!-- banner sec end -->
 <!-- service sec start -->
-<section class="service-sec" style="background-image: url('<?php echo home_url();?>/wp-content/uploads/2022/07/service-bg.jpg');">
+<section class="service-sec" style="background-image: url('<?php the_field('service_background_image'); ?>');">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <div class="title">
-                <h2 class="h2-title" data-title="Service"> Service</h2>
+                <h2 class="h2-title" data-title="<?php the_field('service_main_title'); ?>"><?php the_field('service_main_title'); ?></h2>
                 </div>
             </div>
             <div class="col-lg-12">
                 <div class="service-menu custom-dot-slider">
-
                 </div>
             </div>
         </div>
         <div class="services-tabbing-slider">
-            <div class="service-box">
-                <div class="service-content">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="service-info  white-text">
-                                <h3 class="h3-title dot-title" title="Asphalt">Asphalt</h3>
-                                <p>We provide quality asphalt paving and sealcoating for all your commercial or industrial needs, from installation to maintenance. Parking lots, railroad crossings, and much more!</p>
-                                <a href="#" title="learn more">Learn more <span><i class="fal fa fa-angle-right"></i></span></a>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="service-img">
-                                <div class="back-img" style="background-image: url('<?php echo home_url();?>/wp-content/uploads/2022/07/service-img.jpg');"></div>
-                                <div class=" service-back" style="background-image: url('<?php echo home_url();?>/wp-content/uploads/2022/07/serviceback-img.jpg');"></div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="service-box">
-                <div class="service-content">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="service-info  white-text">
-                                <h3 class="h3-title dot-title" title="Concrete">Concrete</h3>
-                                <p>We provide quality asphalt paving and sealcoating for all your commercial or industrial needs, from installation to maintenance. Parking lots, railroad crossings, and much more!</p>
-                                <a href="#" title="learn more">Learn more <span><i class="fal fa fa-angle-right"></i></span></a>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="service-img">
-                                <div class="back-img" style="background-image: url('<?php echo home_url();?>/wp-content/uploads/2022/07/service-img.jpg');"></div>
-                                <div class=" service-back" style="background-image: url('<?php echo home_url();?>/wp-content/uploads/2022/07/serviceback-img.jpg');"></div>
-
+            <?php
+            if(have_rows('sub_services')):
+                while(have_rows('sub_services')): the_row();
+            ?>
+                    <div class="service-box">
+                        <div class="service-content">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="service-info  white-text">
+                                        <h3 class="h3-title dot-title" title="<?php the_sub_field('sub_service_title'); ?>"><?php the_sub_field('sub_service_title'); ?></h3>
+                                        <?php the_sub_field('sub_service_content'); ?>
+                                        <a href="<?php the_sub_field('page_link'); ?>" title="<?php the_sub_field('sub_service_title'); ?>, Learn more">Learn more <span><i class="fal fa fa-angle-right"></i></span></a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="service-img">
+                                        <div class="back-img" style="background-image: url('<?php the_sub_field('sub_service_image'); ?>');"></div>
+                                        <div class="service-back" style="background-image: url('<?php echo home_url();?>/wp-content/uploads/2022/07/serviceback-img.jpg');"></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="service-box">
-                <div class="service-content">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="service-info  white-text">
-                                <h3 class="h3-title dot-title" title="Commercial Demolition">Commercial Demolition</h3>
-                                <p>We provide quality asphalt paving and sealcoating for all your commercial or industrial needs, from installation to maintenance. Parking lots, railroad crossings, and much more!</p>
-                                <a href="#" title="learn more">Learn more <span><i class="fal fa fa-angle-right"></i></span></a>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="service-img">
-                                <div class="back-img" style="background-image: url('<?php echo home_url();?>/wp-content/uploads/2022/07/service-img.jpg');"></div>
-                                <div class=" service-back" style="background-image: url('<?php echo home_url();?>/wp-content/uploads/2022/07/serviceback-img.jpg');"></div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="service-box">
-                <div class="service-content">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="service-info  white-text">
-                                <h3 class="h3-title dot-title" title="Commercial & Industrial Painting">Commercial & Industrial Painting</h3>
-                                <p>We provide quality asphalt paving and sealcoating for all your commercial or industrial needs, from installation to maintenance. Parking lots, railroad crossings, and much more!</p>
-                                <a href="#" title="learn more">Learn more <span><i class="fal fa fa-angle-right"></i></span></a>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="service-img">
-                                <div class="back-img" style="background-image: url('<?php echo home_url();?>/wp-content/uploads/2022/07/service-img.jpg');"></div>
-                                <div class=" service-back" style="background-image: url('<?php echo home_url();?>/wp-content/uploads/2022/07/serviceback-img.jpg');"></div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?php
+                endwhile;
+            endif;
+            ?>
         </div>
     </div>
 </section>
@@ -140,98 +91,75 @@
 <!-- review section start -->
 <section class="review">
     <div class="container">
-        <div class="row justify-content-center">
 
-        </div>
-        <div class="row justify-content-center ">
-        <div class="col-lg-12">
+        <div class="review-sec">
+            <div class="row justify-content-center ">
+                <div class="col-lg-12">
                     <div class="title">
-                        <h2 class="h2-title" data-title="Reviews"> Reviews</h2>
+                        <h2 class="h2-title" data-title="<?php the_field('reviews_main_title'); ?>"><?php the_field('reviews_main_title'); ?></h2>
                     </div>
-            </div>
-            <div class="col-xl-8 col-lg-10">
-                <div class="review-slider">
-                    <div class="review-info">
+                </div>
+
+                <div class="col-xl-8 col-lg-10">
+                    <div class="review-slider">
+                        <?php
+                        $review_list = get_posts(array(
+                            'post_type' => 'reviews',
+                            'post_status' => 'publish',
+                            'order'          => 'ASC',
+                            'posts_per_page' => -1,
+                        ));
+
+
+                        if ($review_list) :
+                            foreach ($review_list as $review) :
+                                $post_id = $review->ID;
+                        ?>
+                        <div class="review-info">
                             <ul>
                                 <li><i class="fas fa-star"></i></li>
                                 <li><i class="fas fa-star"></i></li>
                                 <li><i class="fas fa-star"></i></li>
                                 <li><i class="fas fa-star"></i></li>
                                 <li><i class="fas fa-star"></i></li>
-
                             </ul>
                             <div class="review-text" data-simplebar="init">
-                                <p>“RLP Consulting has been a huge resource for our retail operations. Anything from parking lots to painting, Rusty has been the only contact we have had to make.
-                                He comes in on time and on budget with every project. Rusty’s customer service with store managers is top notch, and he is also customer minded and keeps their safety and comfort in mind. I would highly recommend RLP Consulting.”</p>
+                                <p><?php echo $review->post_content; ?></p>
                             </div>
                             <div class="author">
-                                <h3 class="h3-title">Wesley Tuley</h3>
-                                <h4 class="h4-title">Neimann Foods</h4>
+                                <h3 class="h3-title"><?php echo $review->post_title; ?></h3>
+                                <h4 class="h4-title"><?php the_field('reviews_department',$post_id); ?></h4>
                             </div>
-
+                        </div>
+                        <?php
+                            endforeach;
+                        endif;
+                        ?>
                     </div>
-                    <div class="review-info">
-                            <ul>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-
-                            </ul>
-                            <div class="review-text" data-simplebar="init">
-                                <p>“RLP Consulting has been a huge resource for our retail operations. Anything from parking lots to painting, Rusty has been the only contact we have had to make.
-                                He comes in on time and on budget with every project. Rusty’s customer service with store managers is top notch, and he is also customer minded and keeps their safety and comfort in mind. I would highly recommend RLP Consulting.”</p>
-                            </div>
-                            <div class="author">
-                                <h3 class="h3-title">Wesley Tuley</h3>
-                                <h4 class="h4-title">Neimann Foods</h4>
-                            </div>
-
-                    </div>
-                    <div class="review-info">
-                            <ul>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-
-                            </ul>
-                            <div class="review-text" data-simplebar="init">
-                                <p>“RLP Consulting has been a huge resource for our retail operations. Anything from parking lots to painting, Rusty has been the only contact we have had to make.
-                                He comes in on time and on budget with every project. Rusty’s customer service with store managers is top notch, and he is also customer minded and keeps their safety and comfort in mind. I would highly recommend RLP Consulting.”</p>
-                            </div>
-                            <div class="author">
-                                <h3 class="h3-title">Wesley Tuley</h3>
-                                <h4 class="h4-title">Neimann Foods</h4>
-                            </div>
-
-                    </div>
-
                 </div>
             </div>
+
         </div>
     </div>
     <!-- gallery section start -->
-    <div class="gallery" style="background-image: url('<?php echo home_url();?>/wp-content/uploads/2022/07/gallery-bg.jpg);">
+    <div class="gallery" style="background-image: url('<?php the_field('gallery_background_image'); ?>);">
         <div class="container">
             <div class="row gallery-slider">
+                <?php
+                $gallery_image = get_field('gallery_images');
+                if(isset($gallery_image) && !empty($gallery_image)) :
+                    $counter = 1;
+                    foreach ($gallery_image as $key => $image) :
+                ?>
                     <div class="gallery-img" >
-                        <div class="back-img" style="background-image: url('<?php echo home_url();?>/wp-content/uploads/2022/07/gallery-1.jpg');"></div>
+                        <a href="<?php echo $image['url']; ?>" data-fancybox="gallery" title="Gallery Image <?php echo $counter++; ?>">
+                            <div class="back-img" style="background-image: url('<?php echo $image['url']; ?>');"></div>
+                        </a>
                     </div>
-                    <div class="gallery-img" >
-                        <div class="back-img" style="background-image: url('<?php echo home_url();?>/wp-content/uploads/2022/07/gallery-2.jpg');"></div>
-                    </div>
-                    <div class="gallery-img" >
-                        <div class="back-img" style="background-image: url('<?php echo home_url();?>/wp-content/uploads/2022/07/gallery-3.jpg');"></div>
-                    </div>
-                    <div class="gallery-img" >
-                        <div class="back-img" style="background-image: url('<?php echo home_url();?>/wp-content/uploads/2022/07/gallery-4.jpg');"></div>
-                    </div>
-                    <div class="gallery-img" >
-                        <div class="back-img" style="background-image: url('<?php echo home_url();?>/wp-content/uploads/2022/07/gallery-2.jpg');"></div>
-                    </div>
+                <?php
+                    endforeach;
+                endif;
+                ?>
             </div>
         </div>
     </div>

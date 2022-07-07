@@ -12,38 +12,68 @@
 ?>
 
 	<footer id="colophon" class="site-footer">
-		<div class="footer-top">
+	<div class="footer-branding">
+				<a href="<?php echo home_url(); ?>" title="logo"><img src="<?php the_field('footer_logo','options'); ?>" alt="logo" width="270" height="270"></a>
+			</div>
+		<div class="footer-top" style="background-image: url('<?php the_field('footer_background_image','options'); ?>');">
 			<div class="container">
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="footer-branding">
-							<a href="http://dev.dotcomdesign.com/rlp-trades/" title="logo"><img src="<?php echo home_url();?>/wp-content/uploads/2022/07/logo-1.svg" alt="logo" width="270" height="270"></a>
+
+				<div class="footer-info">
+					<div class="row">
+						<div class="col-lg-6">
+							<div class="footer-text white-text">
+								<?php the_field('footer_content','options'); ?>
+							</div>
 						</div>
+						<div class="col-lg-6">
+							<div class="footer-contact">
+								<div class="social-box">
+									<span class="icon"><img src="http://192.168.29.3/rlp-trades/wp-content/uploads/2022/07/mail.svg"></span>
+									<a href="mailto:<?php the_field('email','options'); ?>" title="<?php the_field('email','options'); ?>" target="__blank"><?php the_field('email','options'); ?></a>
+								</div>
+								<?php
+									$phone = get_field('phone_number','option');
+									$val = array(" ", "-");
+									$replace = array("", "");
+									$phone_link = str_replace($val, $replace, $phone);
+								?>
+								<div class="social-box">
+									<span class="icon"><img src="http://192.168.29.3/rlp-trades/wp-content/uploads/2022/07/phone.svg"></span>
+									<a href="tel:<?php echo $phone_link; ?>" title="<?php echo $phone; ?>"><span class="callus"><?php echo $phone; ?></span></a>
+								</div>
+								<div class="social-box">
+									<span class="icon"><img src="http://192.168.29.3/rlp-trades/wp-content/uploads/2022/07/map-pin.svg"></span>
+									<a href="<?php the_field('address_link','options'); ?>" title="<?php the_field('address','options'); ?>" target="__blank"><?php the_field('address','options'); ?></a>
+								</div>
+							</div>
+						</div>
+
 					</div>
 				</div>
-				<div class="footer-info">
-					<div class="col-lg-6">
-						<div class="footer-text">	<div class="social-box">
-							<span class="icon"><i class="far fa-envelope"></i></span>
-						</div>
-							<p>RLP Trades offers commercial concrete, asphalt paving, industrial painting, and demolition services. Give us a call to discuss your project.</p>
+			</div>
+		</div>
+		<div class="footer-bottom-box">
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-12">
+						<div class="footer-bottom-text">
+							<div class="copy-right">
+								<p>© <?php echo date('Y'); ?> RLP Consulting</p>
+							</div>
+							<div class="footer-bottom-link">
+								<ul>
+									<li><a href="<?php echo home_url();?>/privacy-policy" title="Privacy Policy">Privacy Policy</a></li>
+									<li><a href="<?php echo home_url();?>/terms-of-use" title="Terms of Service">Terms of Use</a></li>
+									<li><a href="<?php echo home_url();?>/cookie-policy" title="Cookies Policy">Cookie Policy</a></li>
+								</ul>
+							</div>
+
 						</div>
 					</div>
-					<div class="col-lg-6">
-						<div class="footer-contact">
-							<div class="social-box">
-								<span class="icon"><i class="far fa-envelope"></i></span>
-								<a href="mailto:rlpconsulting9302@gmail.com" title="rlpconsulting9302@gmail.com">rlpconsulting9302@gmail.com</a>
+					<div class="col-12">
+					<div class="footer-other-link">
+								<p>Web Design , SEO &amp; Online Marketing by <a href="https://www.dotcomdesign.com" target="_blank" title="Dotcom Design" class="dotcom-link">Dotcom Design</a></p>
 							</div>
-							<div class="social-box">
-								<span class="icon"><i class="far fa-phone-alt"></i></span>
-								<a href="tel:+5733564501" title="573-356-4501">573-356-4501</a>
-							</div>
-							<div class="social-box">
-								<span class="icon"><i class="far fa-envelope"></i></span>
-								<a href="mailto:rlpconsulting9302@gmail.com" title="rlpconsulting9302@gmail.com">rlpconsulting9302@gmail.com</a>
-							</div>
-						</div>
 					</div>
 				</div>
 			</div>

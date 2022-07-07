@@ -138,6 +138,19 @@ jQuery(document).ready(function($) {
     })
 
 
+    // FANCY BOX
+    jQuery().fancybox({
+        selector: '.gallery-slider a',
+        "afterShow": function() {
+            jQuery('.gallery-slider').slick('slickPause');
+        },
+
+        "afterClose": function() {
+            jQuery('.gallery-slider').slick('slickPlay');
+        }
+    });
+
+
 
     jQuery('.plans-slider').slick({
         slidesToShow: 4,

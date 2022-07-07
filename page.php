@@ -15,6 +15,7 @@
 get_header();
 ?>
 	<main id="primary" class="site-main">
+
 		<!-- Banner Start -->
 		<section class="main-banner inner-banner other-banner">
 			<div class="sec-wp">
@@ -28,8 +29,9 @@ get_header();
 					</div>
 				</div>
 			</div>
-    	</section>
+		</section>
     	<!-- Banner End -->
+
 		<div class="blog-post sample-page-content">
         	<div class="container">
             	<div class="row">

@@ -2027,6 +2027,7 @@ button.close:hover {
     top: 100px;
     width: 100%;
     z-index: 99;
+    transition: 0.3s;
 }
 
 .header-menu .main-navigation ul li a {
@@ -2073,6 +2074,43 @@ button.close:hover {
 
 .header-menu .main-navigation li.menu-item-has-children {
     position: unset;
+}
+
+.site-header.sticky_head {
+    top: 0;
+    height: 130px;
+    background: black;
+    position: fixed;
+    z-index: 999;
+}
+
+.site-header.sticky_head .site-branding img {
+    margin-top: 10px;
+    height: 100px;
+}
+
+.site-header.sticky_head .header-call {
+    height: 130px;
+}
+
+.sticky_head .main-navigation ul li.menu-item-has-children:hover ul {
+    background-color: var(--dark-color);
+}
+
+.sticky_head .header-menu .main-navigation ul ul li {
+    padding: 0;
+}
+
+.sticky_head .header-menu .main-navigation ul ul li a {
+    color: var(--orange-color);
+}
+
+.sticky_head .header-menu .main-navigation li {
+    padding: 0px;
+}
+
+.sticky_head .header-menu .main-navigation li a:hover {
+    color: var(--orange-color);
 }
 
 
@@ -2277,11 +2315,11 @@ button.close:hover {
 
 .review {
     background: var(--input-color);
-    padding: 240px 0;
-    clip-path: polygon(50% 0%, 100% 13%, 100% 100%, 0 100%, 0% 13%);
+    padding: 240px 0 0px;
     margin-top: -250px;
     z-index: 99;
     position: relative;
+    clip-path: polygon(50% 0, 100% 12%, 100% 88%, 50% 100%, 0 88%, 0 12%);
 }
 
 .review-slider {
@@ -2332,10 +2370,10 @@ button.close:hover {
 
 .gallery {
     position: relative;
-    padding: 102px 0;
+    padding: 102px 0 275px;
     background-color: var(--dark-color);
     background-blend-mode: luminosity;
-    background-position: center;
+    background-position: top;
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -2343,6 +2381,7 @@ button.close:hover {
 .review-slider .slide-arrow {
     background-color: var(--dark-color);
     top: 110px;
+    left: -20px;
 }
 
 .gallery:before {
@@ -2357,7 +2396,7 @@ button.close:hover {
 
 .review ul li {
     display: inline-block;
-    color: var(--orange-color);
+    color: var(--primary-color);
 }
 
 .author .h3-title {
@@ -2376,23 +2415,189 @@ button.close:hover {
     color: var(--orange-color);
 }
 
+.review-sec {
+    position: relative;
+}
+
+.review-sec:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: calc(100% - 150px);
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(20, 20, 20, 1) 70%, rgba(20, 20, 20, 0) 100%);
+    z-index: 1;
+}
+
+.review-sec:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: calc(100% - 150px);
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(270deg, rgba(20, 20, 20, 1) 70%, rgba(20, 20, 20, 0) 100%);
+    z-index: 1;
+}
+
 
 /*==========review CSS end==========*/
 
 
 /*==========footer CSS start==========*/
 
+.site-footer {
+    position: relative;
+}
+
 .footer-top {
     position: relative;
-    background-color: var(--primary-color);
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: -190px;
+    padding: 355px 0 30px;
+    background-color: var(--white-color);
+    background-blend-mode: luminosity;
+    z-index: 98;
 }
 
 .footer-branding {
+    position: absolute;
+    max-width: 270px;
+    top: -125px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 99;
+}
+
+.footer-top:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-color);
+    opacity: 0.83;
+}
+
+.footer-text {
+    text-align: right;
+    padding: 30px 60px;
+    border-right: 1px solid var(--white-color);
+}
+
+.footer-text p {
+    padding-left: 220px;
+}
+
+.social-box a,
+.social-box span {
+    color: var(--white-color);
+}
+
+.social-box {
+    margin-top: 30px;
+}
+
+.footer-info {
+    position: relative;
+    padding: 50px 0;
+}
+
+.social-box span {
+    margin-right: 10px;
+}
+
+.footer-bottom-box {
+    position: relative;
+    background-color: var(--input-color);
+    padding: 25px 0;
+}
+
+.footer-bottom-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-bottom-link ul li {
+    display: inline-block;
+    padding-right: 8px;
+    padding-left: 15px;
+    border-left: 1px solid var(--white-color);
+    line-height: 15px;
+}
+
+.footer-bottom-link ul li a {
+    color: var(--white-color);
+    font-size: 13px;
+}
+
+.footer-bottom-text p {
+    color: var(--white-color);
+    margin-bottom: 0;
+    padding: 0 16px;
+    font-size: 13px;
+}
+
+.footer-other-link {
     text-align: center;
+}
+
+.footer-other-link p {
+    color: var(--white-color);
+    font-size: 13px;
+}
+
+.footer-other-link a {
+    color: var(--white-color);
+    font-weight: bold;
+    text-decoration: none !important;
+}
+
+.footer-top .col-lg-6 {
+    padding-right: 0;
 }
 
 
 /*==========footer CSS end==========*/
+
+
+/*==========service-pages CSS start==========*/
+
+.service-page .gallery {
+    clip-path: polygon(50% 100%, 100% 78%, 100% 0, 0 0, 0 79%);
+    position: relative;
+    z-index: 99;
+}
+
+.service-page .banner.inner-banner {
+    clip-path: none;
+}
+
+.inner-banner .h2-title:before {
+    left: -15px;
+    transform: translate(0);
+}
+
+.inner-banner .h2-title {
+    font-size: 30px;
+}
+
+.inner-banner .h3-title {
+    color: var(--white-color);
+    font-size: 60px;
+}
+
+.-inner-banner-content {
+    padding-right: 140px;
+}
+
+
+/*==========service-pages CSS end==========*/
 
 
 /*==========Scroll To Top CSS Start==========*/
