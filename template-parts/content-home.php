@@ -43,12 +43,12 @@
 </section>
 <!-- banner sec end -->
 <!-- service sec start -->
-<section class="service-sec" style="background-image: url('<?php the_field('service_background_image'); ?>');">
+<section class="service-sec" style="background-image: url('<?php the_field('service_background_image'); ?>');" id="services">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <div class="title">
-                <h2 class="h2-title" data-title="<?php the_field('service_main_title'); ?>"><?php the_field('service_main_title'); ?></h2>
+                <h2 class="h2-title" data-title="Services"><?php the_field('service_main_title'); ?></h2>
                 </div>
             </div>
             <div class="col-lg-12">
@@ -91,12 +91,11 @@
 <!-- review section start -->
 <section class="review">
     <div class="container">
-
         <div class="review-sec">
             <div class="row justify-content-center ">
                 <div class="col-lg-12">
                     <div class="title">
-                        <h2 class="h2-title" data-title="<?php the_field('reviews_main_title'); ?>"><?php the_field('reviews_main_title'); ?></h2>
+                        <h2 class="h2-title" data-title="Reviews"><?php the_field('reviews_main_title'); ?></h2>
                     </div>
                 </div>
 
@@ -138,7 +137,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
     <!-- gallery section start -->
@@ -146,19 +144,19 @@
         <div class="container">
             <div class="row gallery-slider">
                 <?php
-                $gallery_image = get_field('gallery_images');
-                if(isset($gallery_image) && !empty($gallery_image)) :
-                    $counter = 1;
-                    foreach ($gallery_image as $key => $image) :
+                    $gallery_image = get_field('gallery_images');
+                    if(isset($gallery_image) && !empty($gallery_image)) :
+                        $counter = 1;
+                        foreach ($gallery_image as $key => $image) :
                 ?>
-                    <div class="gallery-img" >
-                        <a href="<?php echo $image['url']; ?>" data-fancybox="gallery" title="Gallery Image <?php echo $counter++; ?>">
-                            <div class="back-img" style="background-image: url('<?php echo $image['url']; ?>');"></div>
-                        </a>
-                    </div>
+                            <div class="gallery-img" >
+                                <a href="<?php echo $image['url']; ?>" data-fancybox="gallery" title="Gallery Image <?php echo $counter++; ?>">
+                                    <div class="back-img" style="background-image: url('<?php echo $image['url']; ?>');"></div>
+                                </a>
+                            </div>
                 <?php
-                    endforeach;
-                endif;
+                        endforeach;
+                    endif;
                 ?>
             </div>
         </div>

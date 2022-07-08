@@ -26,26 +26,30 @@
 							</div>
 						</div>
 						<div class="col-lg-6">
-							<div class="footer-contact">
-								<div class="social-box">
+							<ul class="footer-contact">
+								<li class="social-box">
 									<span class="icon"><img src="http://192.168.29.3/rlp-trades/wp-content/uploads/2022/07/mail.svg"></span>
-									<a href="mailto:<?php the_field('email','options'); ?>" title="<?php the_field('email','options'); ?>" target="__blank"><?php the_field('email','options'); ?></a>
-								</div>
+									<a href="mailto:<?php the_field('email','options'); ?>" title="<?php the_field('email','options'); ?>"><?php the_field('email','options'); ?></a>
+								</li>
 								<?php
 									$phone = get_field('phone_number','option');
 									$val = array(" ", "-");
 									$replace = array("", "");
 									$phone_link = str_replace($val, $replace, $phone);
 								?>
-								<div class="social-box">
+								<li class="social-box">
 									<span class="icon"><img src="http://192.168.29.3/rlp-trades/wp-content/uploads/2022/07/phone.svg"></span>
 									<a href="tel:<?php echo $phone_link; ?>" title="<?php echo $phone; ?>"><span class="callus"><?php echo $phone; ?></span></a>
-								</div>
-								<div class="social-box">
+								</li>
+								<?php
+								$address = get_field('address','options');
+								$address_title = strip_tags($address); 
+								?>
+								<li class="social-box">
 									<span class="icon"><img src="http://192.168.29.3/rlp-trades/wp-content/uploads/2022/07/map-pin.svg"></span>
-									<a href="<?php the_field('address_link','options'); ?>" title="<?php the_field('address','options'); ?>" target="__blank"><?php the_field('address','options'); ?></a>
-								</div>
-							</div>
+									<a href="<?php the_field('address_link','options'); ?>" title="<?php echo $address_title; ?>" target="_blank"><?php echo $address; ?></a>
+								</li>
+							</ul>
 						</div>
 
 					</div>

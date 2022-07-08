@@ -1,10 +1,15 @@
+
+
+
+
 <?php
 /*
   Template Name: Without Sidebar
  */
   get_header();
 ?>
-<section class="main-banner inner-banner">
+
+<section class="banner inner-banner inner-page-banner" style="background-image: url('<?php echo home_url();?>/wp-content/uploads/2022/07/footer-bg.jpg');">
     <div class="container">
         <div class="row">
             <div class="col-lg-9">
@@ -14,12 +19,16 @@
             </div>
         </div>
     </div>
-</section><!-- emd of main-banner -->
+</section>
+<!-- end of main-banner -->
 
 <div class="inner-page-text">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
+                <!-- <div class="inner-title ">
+                    <h1 class="h2-title"><?php// the_title(); ?></h1>
+                </div> -->
                 <div id="primary" class="content-area">
                     <main id="main" class="site-main">
                         <?php
@@ -27,7 +36,7 @@
                             the_post();
                             ?>
                             <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-                                
+
                                 <?php rlp_trades_post_thumbnail(); ?>
                                 <div class="entry-content">
                                     <?php
@@ -41,12 +50,12 @@
                                             )
                                         ), get_the_title()
                                     ));
-                           
+
                                     ?>
                                 </div><!-- .entry-content -->
                             </article><!-- #post-the_ID(); -->
                             <?php
-                           
+
                         endwhile; // End of the loop.
                         ?>
                     </main><!-- #main -->
@@ -57,4 +66,5 @@
 </div>
 <?php
 get_footer();
+
 

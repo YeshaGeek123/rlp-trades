@@ -28,7 +28,7 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'rlp-trades' ); ?></a>
 
-	
+
 	<header id="masthead" class="site-header">
 		<div class="container">
 			<div class="row align-items-center">
@@ -65,7 +65,7 @@
 				$phone_link = str_replace($val, $replace, $phone);
 				?>
 				<div class="col-lg-2">
-					<div class="header-call">
+					<div class="header-call for-des">
 						<a href="tel:<?php echo $phone_link; ?>" title="<?php echo $phone; ?>"><img src="<?php echo home_url();?>/wp-content/uploads/2022/07/phone.svg"> <span class="callus"><?php echo $phone; ?></span></a>
 					</div>
 				</div>

@@ -1010,11 +1010,12 @@ span.wpcf7-not-valid-tip {
     color: var(--red-color);
     margin-bottom: -24px;
     text-align: left;
+    display: none;
 }
 
 .wpcf7-form-control-wrap {
     display: block;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     position: relative;
 }
 
@@ -1032,6 +1033,7 @@ span.wpcf7-not-valid-tip {
     font-size: 14px;
     line-height: 24px;
     text-align: left;
+    display: none;
 }
 
 .wpcf7 form.sent .wpcf7-response-output {
@@ -1096,16 +1098,15 @@ select::-ms-expand {
 .select2-container--default .select2-selection--single .select2-selection__rendered,
 select {
     width: 100%;
-    height: 46px;
-    border: none;
+    height: 60px;
+    border: 1px solid var(--white-color);
     outline: none !important;
-    padding: 0 15px;
+    padding: 22px 50px;
     font-size: 16px;
     line-height: 26px;
-    color: var(--dark-color);
-    background: var(--white-color);
+    color: var(--white-color);
+    background: transparent;
     -webkit-appearance: none;
-    border-radius: 10px;
 }
 
 select,
@@ -1119,7 +1120,6 @@ select.form-input {
 .form-input.wpcf7-textarea {
     height: 120px;
     resize: none;
-    padding: 15px;
     display: block;
 }
 
@@ -1307,6 +1307,7 @@ input[type="number"]::-webkit-outer-spin-button {
     --input-color: #141414;
     --orange-color: #E2711A;
     --bg-color: #171C26;
+    --title-color: #4E88FF;
     --body-font: 'Futura';
     --title-font: 'Squada One';
 }
@@ -1323,7 +1324,7 @@ p {
     font-family: var(--body-font);
     font-weight: 300;
     line-height: 32px;
-    margin-bottom: 16px;
+    margin-bottom: 15px;
 }
 
 h1,
@@ -1361,10 +1362,10 @@ a:hover {
 }
 
 .h2-title {
-    font-size: 44px;
+    font-size: 60px;
     line-height: 54px;
     font-weight: 100;
-    color: var(--primary-color);
+    color: var(--title-color);
     text-transform: uppercase;
     margin-bottom: 14px;
     position: relative;
@@ -1377,7 +1378,7 @@ a:hover {
     top: 0;
     left: 50%;
     transform: translate(-50%, 0);
-    font-size: 130px;
+    font-size: 170px;
     color: var(--secondary-color);
     opacity: 0.20;
     z-index: -1;
@@ -1390,6 +1391,7 @@ a:hover {
     font-weight: bold;
     color: var(--dark-color);
     margin-bottom: 30px;
+    font-weight: normal;
 }
 
 .grecaptcha-badge {
@@ -1517,7 +1519,6 @@ a:hover {
 
 .main-navigation ul li.menu-item-has-children:hover>a:after {
     transform: translate(0, -50%) rotate(-180deg);
-    color: var(--dark-color);
 }
 
 .main-navigation ul ul {
@@ -1558,6 +1559,7 @@ a:hover {
 .header-menu .main-navigation ul ul li {
     display: inline-block;
     margin: 0;
+    padding: 10px;
 }
 
 .main-navigation ul ul li:last-child {
@@ -1567,8 +1569,8 @@ a:hover {
 .header-menu .main-navigation ul ul li a {
     display: block;
     padding: 10px 0;
-    font-size: 20px;
-    line-height: 26px;
+    font-size: 17px;
+    line-height: 18px;
     transition: 0.3s;
     color: var(--white-color);
 }
@@ -1590,7 +1592,7 @@ a:hover {
     justify-content: center;
     align-items: center;
     -webkit-appearance: none;
-    font-size: 25px;
+    font-size: 30px;
     line-height: 20px;
     color: var(--white-color);
     font-family: var(--title-font);
@@ -1601,6 +1603,7 @@ a:hover {
     transition: 0.3s;
     overflow: hidden;
     position: relative;
+    text-transform: uppercase;
     z-index: 2;
 }
 
@@ -1624,6 +1627,15 @@ a:hover {
 .sec-btn span {
     position: relative;
     color: var(--white-color);
+    width: 100%;
+    display: block;
+    letter-spacing: 0;
+    transition: 0.3s;
+}
+
+.sec-btn:hover span {
+    letter-spacing: 4px;
+    transition: 0.3s;
 }
 
 .main-banner .banner-video,
@@ -1797,7 +1809,7 @@ button.close:hover {
 .slick-arrow {
     position: absolute;
     top: 50%;
-    left: -30px;
+    left: -60px;
     width: 70px;
     height: 70px;
     padding: 0;
@@ -2031,27 +2043,32 @@ button.close:hover {
 }
 
 .header-menu .main-navigation ul li a {
+    display: inline-block;
     font-size: 25px;
     color: var(--white-color);
     font-family: var(--title-font);
+    transform: scale(1);
+    text-transform: uppercase;
 }
 
 .header-menu .main-navigation li {
-    margin-right: 170px;
+    margin-right: 150px;
     padding: 10px 0;
 }
 
 .header-menu {
     text-align: center;
+    padding-right: 150px;
 }
 
 .header-call {
     width: 230px;
     height: 60px;
     background-color: var(--primary-color);
-    display: flex;
+    display: flex !important;
     align-items: center;
     justify-content: center;
+    margin-left: -60px;
 }
 
 .header-call a {
@@ -2061,11 +2078,12 @@ button.close:hover {
 }
 
 .header-menu .main-navigation li a:hover {
-    color: var(--dark-color);
+    transform: scale(1.1);
 }
 
 .header-menu .main-navigation ul ul li a:hover {
     color: var(--orange-color);
+    transform: scale(1);
 }
 
 .header-menu .main-navigation li:last-child {
@@ -2098,7 +2116,7 @@ button.close:hover {
 }
 
 .sticky_head .header-menu .main-navigation ul ul li {
-    padding: 0;
+    padding: 0 5px;
 }
 
 .sticky_head .header-menu .main-navigation ul ul li a {
@@ -2113,6 +2131,33 @@ button.close:hover {
     color: var(--orange-color);
 }
 
+.main-navigation ul li.current-menu-item a,
+.header-menu .main-navigation li.menu-item-type-custom.current-menu-ancestor a {
+    color: var(--orange-color);
+}
+
+.header-menu .main-navigation ul li.menu-item-type-custom a {
+    color: var(--white-color);
+}
+
+.sticky_head .header-menu .main-navigation ul ul li a:hover {
+    color: var(--white-color);
+    transform: scale(1);
+}
+
+.header-menu .main-navigation ul ul li a:hover:not(.home .header-menu .main-navigation ul ul li a:hover) {
+    color: var(--white-color);
+    transform: scale(1);
+}
+
+ul.sub-menu li.current_page_item a {
+    color: var(--white-color)!important;
+}
+
+.header-menu .main-navigation li.menu-item-type-custom.current-menu-ancestor a:after {
+    color: var(--orange-color);
+}
+
 
 /*==========Header CSS End==========*/
 
@@ -2122,7 +2167,7 @@ button.close:hover {
 .banner {
     width: 100%;
     position: relative;
-    padding-top: 415px;
+    padding-top: 422px;
     padding-bottom: 0;
     background-size: cover;
     background-position: center;
@@ -2139,7 +2184,7 @@ button.close:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to right, #141414, transparent);
+    background: linear-gradient(90deg, #141414 0, hsl(0deg 0% 0% / 0%) 77%);
 }
 
 .banner-btn .sec-btn+.sec-btn {
@@ -2154,12 +2199,12 @@ button.close:hover {
 }
 
 .about-text {
-    padding: 175px 70px 0 60px;
+    padding: 255px 70px 0 60px;
 }
 
 .about-us {
     position: relative;
-    margin-top: 200px;
+    margin-top: 135px;
 }
 
 .banner:after {
@@ -2169,13 +2214,12 @@ button.close:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to top, #141414, transparent);
+    background: linear-gradient(4deg, #141414 15%, hsl(0deg 0% 0% / 0%) 85%);
 }
 
 .about-us .title {
     position: relative;
-    top: 120px;
-    margin-top: -70px;
+    top: 165px;
     z-index: 8;
 }
 
@@ -2183,8 +2227,8 @@ button.close:hover {
     content: "";
     position: absolute;
     top: 0;
-    left: 0;
-    width: 100%;
+    right: 0%;
+    width: 140%;
     height: 100%;
     background: linear-gradient(224deg, #141414, transparent 60%);
 }
@@ -2206,10 +2250,12 @@ button.close:hover {
 .service-sec {
     position: relative;
     margin-top: -190px;
-    padding: 350px 0;
+    padding: 365px 0;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    background-color: var(--white-color);
+    background-blend-mode: luminosity;
     z-index: 3;
 }
 
@@ -2231,6 +2277,9 @@ button.close:hover {
     display: inline-block;
     margin-right: 100px;
     cursor: pointer;
+    text-transform: uppercase;
+    transform: scale(1);
+    transition: 0.3s;
 }
 
 .service-menu ul li:last-child {
@@ -2239,7 +2288,7 @@ button.close:hover {
 
 .service-menu {
     text-align: center;
-    margin-top: 50px;
+    margin-top: 105px;
 }
 
 .service-box {
@@ -2247,7 +2296,7 @@ button.close:hover {
 }
 
 .service-info {
-    margin-top: 150px;
+    margin-top: 67px;
     padding: 0 110px 0 130px;
 }
 
@@ -2303,8 +2352,10 @@ button.close:hover {
     color: var(--orange-color);
 }
 
-.service-menu ul li.slick-active {
+.service-menu ul li.slick-active,
+.service-menu ul li:hover {
     color: var(--orange-color);
+    transform: scale(1.1);
 }
 
 
@@ -2315,15 +2366,15 @@ button.close:hover {
 
 .review {
     background: var(--input-color);
-    padding: 240px 0 0px;
-    margin-top: -250px;
+    padding: 245px 0 0px;
+    margin-top: -242px;
     z-index: 99;
     position: relative;
     clip-path: polygon(50% 0, 100% 12%, 100% 88%, 50% 100%, 0 88%, 0 12%);
 }
 
 .review-slider {
-    padding: 50px 0px;
+    padding: 80px 0px 0 50px;
     position: relative;
 }
 
@@ -2358,24 +2409,10 @@ button.close:hover {
     margin-top: 20px;
 }
 
-.gallery-img {
-    height: 444px;
-}
-
 .review-slider .slick-list.draggable {
     overflow: visible;
     padding-left: 20px;
     padding-right: 30px;
-}
-
-.gallery {
-    position: relative;
-    padding: 102px 0 275px;
-    background-color: var(--dark-color);
-    background-blend-mode: luminosity;
-    background-position: top;
-    background-size: cover;
-    background-repeat: no-repeat;
 }
 
 .review-slider .slide-arrow {
@@ -2384,19 +2421,10 @@ button.close:hover {
     left: -20px;
 }
 
-.gallery:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, #141414, transparent 600%);
-}
-
 .review ul li {
     display: inline-block;
     color: var(--primary-color);
+    margin-bottom: 30px;
 }
 
 .author .h3-title {
@@ -2439,6 +2467,36 @@ button.close:hover {
     height: 100%;
     background: linear-gradient(270deg, rgba(20, 20, 20, 1) 70%, rgba(20, 20, 20, 0) 100%);
     z-index: 1;
+}
+
+.gallery {
+    position: relative;
+    padding: 125px 0 275px;
+    background-color: var(--dark-color);
+    background-blend-mode: luminosity;
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.gallery:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #141414, transparent 600%);
+}
+
+.gallery-slider .slick-arrow {
+    top: 50%;
+    transform: translate(0, -60%);
+    left: -30px;
+}
+
+.gallery-img {
+    height: 444px;
 }
 
 
@@ -2485,17 +2543,19 @@ button.close:hover {
 
 .footer-text {
     text-align: right;
-    padding: 30px 60px;
+    padding: 30px 63px 30px 100px;
     border-right: 1px solid var(--white-color);
 }
 
 .footer-text p {
-    padding-left: 220px;
+    padding-left: 130px;
+    line-height: 45px;
 }
 
 .social-box a,
 .social-box span {
     color: var(--white-color);
+    line-height: 25px;
 }
 
 .social-box {
@@ -2562,20 +2622,74 @@ button.close:hover {
     padding-right: 0;
 }
 
+.footer-contact li:nth-child(3) a span {
+    display: inline-block;
+    margin-left: 35px;
+}
+
+.footer-contact {
+    padding-right: 160px;
+    padding-left: 50px;
+}
+
 
 /*==========footer CSS end==========*/
 
 
 /*==========service-pages CSS start==========*/
 
-.service-page .gallery {
+.site-header:not(.home .site-header) {
+    top: 0;
+    height: 130px;
+    background: black;
+    position: fixed;
+    z-index: 999;
+}
+
+.site-header .site-branding img:not(.home .site-header .site-branding img) {
+    margin-top: 10px;
+    height: 100px;
+}
+
+.site-header .header-call:not(.home .site-header .header-call) {
+    height: 130px;
+}
+
+.main-navigation ul li.menu-item-has-children:hover ul:not(.home .main-navigation ul li.menu-item-has-children:hover ul) {
+    background-color: var(--dark-color);
+}
+
+.header-menu .main-navigation ul ul li:not(.home .header-menu .main-navigation ul ul li) {
+    padding: 0;
+}
+
+.header-menu .main-navigation ul ul li a:not(.home .header-menu .main-navigation ul ul li a) {
+    color: #F8984E;
+}
+
+.header-menu .main-navigation li:not(.home .header-menu .main-navigation li) {
+    padding: 0px 7px;
+}
+
+.header-menu .main-navigation li a:hover:not(.home .header-menu .main-navigation li a) {
+    color: var(--orange-color);
+}
+
+.inner-page .gallery {
     clip-path: polygon(50% 100%, 100% 78%, 100% 0, 0 0, 0 79%);
     position: relative;
     z-index: 99;
 }
 
-.service-page .banner.inner-banner {
+.inner-page .banner.inner-banner {
     clip-path: none;
+    padding-top: 290px;
+    padding-bottom: 22px;
+    background-position: 560px -140px;
+}
+
+.inner-page .banner.inner-banner:before {
+    background: linear-gradient(to right, #141414 31%, hsl(0deg 0% 0% / 0%) 100%);
 }
 
 .inner-banner .h2-title:before {
@@ -2583,21 +2697,110 @@ button.close:hover {
     transform: translate(0);
 }
 
-.inner-banner .h2-title {
+.inner-banner .h2-title,
+.contact-page .inner-banner .h2-title {
     font-size: 30px;
+    color: var(--primary-color);
 }
 
 .inner-banner .h3-title {
     color: var(--white-color);
     font-size: 60px;
+    margin-bottom: 70px;
+    text-transform: uppercase;
+    line-height: 64px;
 }
 
-.-inner-banner-content {
+.inner-banner-content {
     padding-right: 140px;
+}
+
+.inner-banner-content .sec-btn {
+    margin-top: 80px;
+}
+
+.inner-banner-content .sec-btn:after {
+    content: attr(data-hover);
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    color: var(--white-color);
+    letter-spacing: 0;
+    transition: 0.3s;
+}
+
+.inner-banner-content .sec-btn:hover:after {
+    opacity: 1;
+    letter-spacing: 4px;
+    transition: 0.3s;
+}
+
+.inner-banner-content .sec-btn:hover span {
+    opacity: 0;
 }
 
 
 /*==========service-pages CSS end==========*/
+
+
+/*==========contact-page CSS start==========*/
+
+.inner-page.contact-page .inner-banner {
+    padding-bottom: 220px;
+}
+
+.contact-page .footer-text {
+    text-align: left;
+    border: none;
+    padding: 0;
+    padding-right: 150px;
+}
+
+.contact-page .footer-text p {
+    padding-left: 0;
+    line-height: 38px;
+}
+
+.form-input::placeholder {
+    color: var(--white-color);
+}
+
+.form .sec-btn {
+    width: 152px;
+    height: 46px;
+    font-size: 20px;
+    margin-top: 5px;
+}
+
+.form {
+    width: 86%;
+    margin-top: 50px;
+}
+
+.contact-page .inner-banner {
+    position: relative;
+    clip-path: polygon(50% 100%, 100% 78%, 100% 0, 0 0, 0 79%)!important;
+    z-index: 99;
+}
+
+.page-template-template-contact .footer-top {
+    margin-top: -210px;
+}
+
+.contact-page .footer-contact {
+    margin-top: 45px;
+    padding-left: 0;
+}
+
+
+/*==========contact-page CSS end==========*/
 
 
 /*==========Scroll To Top CSS Start==========*/
@@ -2632,7 +2835,7 @@ button.close:hover {
 /*==========Scroll To Top CSS End==========*/
 
 
-/*========== Inner Page CSS end ==========*/
+/*========== Inner Page CSS start ==========*/
 
 .main-banner.inner-banner {
     padding: 280px 0 160px 0;
@@ -2643,19 +2846,35 @@ button.close:hover {
     text-align: center;
 }
 
+.inner-page-banner {
+    clip-path: none;
+    padding: 280px 0 130px;
+}
+
+
+/* .page-template .footer-top {
+    margin-top: -305px;
+    clip-path: polygon(50% 39%, 100% 14%, 100% 100%, 0% 100%, 0% 14%);
+} */
+
 .inner-page-text {
-    padding: 80px 0;
+    padding: 40px 0 180px;
+    background-color: var(--input-color);
+    position: relative;
+    clip-path: polygon(50% 100%, 100% 92%, 100% 0, 0 0, 0 92%)!important;
 }
 
 .privacy-content h2,
 .entry-content h2 {
     font-size: 35px;
     color: var(--primary-color);
+    font-weight: normal;
 }
 
 .privacy-content p,
 .entry-content p {
     margin-bottom: 15px;
+    color: var(--white-color);
 }
 
 .privacy-content ol,
@@ -2672,6 +2891,7 @@ button.close:hover {
 .entry-content ul li {
     margin-bottom: 10px;
     list-style: decimal;
+    color: var(--white-color);
 }
 
 .privacy-content p a,
@@ -2686,12 +2906,16 @@ button.close:hover {
 .privacy-content p a:hover .privacy-content a:hover,
 .entry-content p a:hover,
 .entry-content a:hover {
-    color: var(--dark-color);
+    color: var(--white-color);
 }
 
 .privacy-content .list-disk li,
 .entry-content .list-disk li {
     list-style: disc;
+}
+
+.thank-text p a:hover {
+    color: var(--white-color);
 }
 
 
@@ -2722,11 +2946,17 @@ button.close:hover {
     overflow: hidden;
 }
 
+.thank-text span {
+    color: var(--orange-color);
+    font-weight: bold;
+}
+
 .thank-text h6 {
     font-size: 24px;
     line-height: 30px;
     text-transform: capitalize;
-    color: var(--dark-color);
+    color: var(--white-color);
+    font-weight: normal;
 }
 
 .thank-text p a {
@@ -2960,7 +3190,8 @@ button.close:hover {
 }
 
 .entry-content {
-    margin: 0
+    margin: 0;
+    color: var(--white-color);
 }
 
 .comment-form {
@@ -3271,9 +3502,84 @@ a.prev.page-numbers {
     }
 }
 
-@media screen and (max-width: 1499px) {}
+@media screen and (max-width: 1499px) {
+    .header-menu .main-navigation li {
+        margin-right: 125px;
+    }
+    .h1-title {
+        font-size: 115px;
+    }
+    .service-info {
+        padding: 0 60px;
+    }
+    .slick-arrow {
+        left: -30px;
+    }
+    .review-slider .slide-arrow {
+        bottom: 150px;
+        top: auto;
+        left: 20px;
+    }
+    .footer-top {
+        margin-top: -200px;
+    }
+    .footer-text p {
+        padding-left: 0;
+    }
+}
 
-@media screen and (max-width: 1199px) {}
+@media screen and (max-width: 1199px) {
+    .header-menu .main-navigation li {
+        margin-right: 80px;
+    }
+    .header-call {
+        width: 200px;
+    }
+    .header-menu .main-navigation ul ul li {
+        display: block;
+    }
+    .h1-title {
+        font-size: 100px;
+    }
+    .banner-btn .sec-btn {
+        width: 230px;
+    }
+    .about-text {
+        padding-right: 0;
+        padding-left: 30px;
+    }
+    .about-img {
+        height: 600px;
+    }
+    .service-menu ul li {
+        margin-right: 50px;
+    }
+    .service-info {
+        padding: 0 20px 0 60px;
+    }
+    .service-back {
+        width: 350px;
+    }
+    .gallery-img {
+        height: 400px;
+    }
+    .main-navigation ul li.menu-item-has-children:hover ul {
+        flex-direction: column;
+    }
+    .header-menu {
+        padding-right: 0;
+    }
+    .main-navigation ul ul:hover {
+        text-align: left;
+    }
+    .gallery-slider .slick-arrow {
+        left: -10px;
+        top: 40%;
+    }
+    .gallery-slider .slide-arrow.next-arrow.slick-arrow {
+        right: -10px;
+    }
+}
 
 @media screen and (max-width: 991px) {
     .for-des,
