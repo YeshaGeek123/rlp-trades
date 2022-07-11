@@ -1,27 +1,39 @@
 <!-- banner sec start -->
 <section class="banner" style="background-image: url('<?php the_field('home_banner_image'); ?>');">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-7">
-                <div class="banner-content">
-                        <h1 class="h1-title"><?php the_field('home_banner_slogan'); ?></h1>
-                        <?php
-                            $phone = get_field('phone_number','option');
-                            $val = array(" ", "-");
-                            $replace = array("", "");
-                            $phone_link = str_replace($val, $replace, $phone);
-                        ?>
-                    <div class="banner-btn">
-                        <a href="tel:<?php echo $phone_link; ?>" class="sec-btn" title="Call now"><span>Call now</span></a>
-                        <a href="<?php the_field('home_contact_us_link'); ?>" class="sec-btn" title="Contact Us"><span>Contact Us</span></a>
+<div class="banner-section">
+    <div class="banner-mob-bg" style="background-image: url('<?php the_field('home_banner_image'); ?>');"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+
+                    <div class="banner-content">
+                    <div class="site-id for-mob">
+                        <img  src="<?php echo home_url();?>/wp-content/uploads/2022/07/logo-1.svg"  alt="Logo" width="150" height="150">
+                        </div>
+                            <h1 class="h1-title"><?php the_field('home_banner_slogan'); ?></h1>
+                            <?php
+                                $phone = get_field('phone_number','option');
+                                $val = array(" ", "-");
+                                $replace = array("", "");
+                                $phone_link = str_replace($val, $replace, $phone);
+                            ?>
+                        <div class="banner-btn">
+                            <a href="tel:<?php echo $phone_link; ?>" class="sec-btn" title="Call now"><span>Call now</span></a>
+                            <a href="<?php the_field('home_contact_us_link'); ?>" class="sec-btn" title="Contact Us"><span>Contact Us</span></a>
+                        </div>
                     </div>
                 </div>
             </div>
+
         </div>
+
+</div>
+<div class="about-section">
+    <div class="container">
         <div class="about-us">
             <div class="row no-gutters ">
-                <div class="col-lg-12">
-                    <div class="title">
+                <div class="col-lg-12 for-des">
+                    <div class="title ">
                         <h2 class="h2-title" data-title="About"><?php the_field('about_us_title'); ?></h2>
                     </div>
                 </div>
@@ -29,6 +41,11 @@
                     <div class="about-img">
                         <div class="back-img" style="background-image: url('<?php the_field('about_us_image'); ?>');">
                         </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 for-mob">
+                    <div class="title ">
+                        <h2 class="h2-title" data-title="About"><?php the_field('about_us_title'); ?></h2>
                     </div>
                 </div>
                 <div class="col-lg-5">
@@ -40,6 +57,7 @@
 
         </div>
     </div>
+</div>
 </section>
 <!-- banner sec end -->
 <!-- service sec start -->
@@ -62,16 +80,19 @@
                 while(have_rows('sub_services')): the_row();
             ?>
                     <div class="service-box">
+                        <div class="for-mob">
+                            <h3 class="h3-title service-accordian-title"><?php the_sub_field('sub_service_title'); ?><span class="arrow"></span></h3>
+                        </div>
                         <div class="service-content">
                             <div class="row">
-                                <div class="col-lg-6">
+                                <div class="col-lg-6 order-lg-1 order-2">
                                     <div class="service-info  white-text">
                                         <h3 class="h3-title dot-title" title="<?php the_sub_field('sub_service_title'); ?>"><?php the_sub_field('sub_service_title'); ?></h3>
                                         <?php the_sub_field('sub_service_content'); ?>
                                         <a href="<?php the_sub_field('page_link'); ?>" title="<?php the_sub_field('sub_service_title'); ?>, Learn more">Learn more <span><i class="fal fa fa-angle-right"></i></span></a>
                                     </div>
                                 </div>
-                                <div class="col-lg-6">
+                                <div class="col-lg-6  order-lg-2 order-1">
                                     <div class="service-img">
                                         <div class="back-img" style="background-image: url('<?php the_sub_field('sub_service_image'); ?>');"></div>
                                         <div class="service-back" style="background-image: url('<?php echo home_url();?>/wp-content/uploads/2022/07/serviceback-img.jpg');"></div>

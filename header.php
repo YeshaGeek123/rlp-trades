@@ -26,17 +26,26 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 <div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'rlp-trades' ); ?></a>
+	<a class="skip-link screen-reader-text" href="#primary" title="Skip to content"><?php esc_html_e( 'Skip to content', 'rlp-trades' ); ?></a>
 
 
 	<header id="masthead" class="site-header">
 		<div class="container">
 			<div class="row align-items-center">
 				<div class="col-lg-2">
-					<div class="site-branding">
+					<div class="site-branding for-des">
 						<?php the_custom_logo();?>
 					</div><!-- .site-branding -->
+					<div class="site-branding for-mob">
+						<a href="<?php echo home_url(); ?>" title="RLP Consulting"><img src="<?php the_field('responsive_logo','options'); ?>" alt="logo" width="103" height="32"></a>
+					</div>
 				</div>
+				<?php
+				$phone = get_field('phone_number','option');
+				$val = array(" ", "-");
+				$replace = array("", "");
+				$phone_link = str_replace($val, $replace, $phone);
+				?>
 				<div class="col-lg-8">
 					<div class="header-menu">
 						<nav id="site-navigation" class="main-navigation">
@@ -46,6 +55,9 @@
 								<span></span>
 							</button>
 							<div class="header-mobile-menu">
+							<div class="site-id for-mob">
+								<img src="<?php the_field('footer_logo','options'); ?>"  alt="Logo" width="150" height="150">
+							</div>
 								<?php
 								wp_nav_menu(
 									array(
@@ -54,19 +66,20 @@
 									)
 								);
 								?>
+								<div class="header-contact for-mob">
+									<a href="tel:<?php echo $phone_link; ?>" class="sec-btn" title="Call now"><span>Call now</span></a>
+								</div>
 							</div>
 						</nav>
 					</div>
 				</div>
-				<?php
-				$phone = get_field('phone_number','option');
-				$val = array(" ", "-");
-				$replace = array("", "");
-				$phone_link = str_replace($val, $replace, $phone);
-				?>
+				
 				<div class="col-lg-2">
 					<div class="header-call for-des">
 						<a href="tel:<?php echo $phone_link; ?>" title="<?php echo $phone; ?>"><img src="<?php echo home_url();?>/wp-content/uploads/2022/07/phone.svg"> <span class="callus"><?php echo $phone; ?></span></a>
+					</div>
+					<div class="header-call-mob for-mob">
+						<a href="tel:<?php echo $phone_link; ?>" title="call"><img src="<?php echo home_url();?>/wp-content/uploads/2022/07/phone-mob.svg"></a>
 					</div>
 				</div>
 			</div>
