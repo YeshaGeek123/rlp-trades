@@ -17,22 +17,22 @@ get_header();
 	<main id="primary" class="site-main">
 
 		<!-- Banner Start -->
-		<section class="main-banner inner-banner other-banner">
-			<div class="sec-wp">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="banner-content">
-								<h1 class="h1-title wow fadeup-animation" data-wow-duration="0.8s" data-wow-delay="0.2s"> <?php the_title(); ?></h1>
-							</div>
+		<div class="banner inner-banner inner-page-banner" style="background-image: url('<?php echo home_url();?>/wp-content/uploads/2022/07/footer-bg.jpg');">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-9">
+						<div class="banner-text">
+							<h1 class="h1-title">Sample page</h1>
 						</div>
 					</div>
 				</div>
 			</div>
-		</section>
+		</div>
     	<!-- Banner End -->
 
-		<div class="blog-post sample-page-content">
+		<div class="inner-page-text">
+		<div class="inner-page-text-shape"></div>
+
         	<div class="container">
             	<div class="row">
                 	<div class="col-lg-12">

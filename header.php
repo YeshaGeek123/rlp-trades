@@ -56,7 +56,8 @@
 							</button>
 							<div class="header-mobile-menu">
 							<div class="site-id for-mob">
-								<img src="<?php the_field('footer_logo','options'); ?>"  alt="Logo" width="150" height="150">
+							<a href="<?php echo home_url(); ?>" title="logo"><img src="<?php the_field('footer_logo','options'); ?>"  alt="Logo" width="150" height="150">
+								</a>
 							</div>
 								<?php
 								wp_nav_menu(
@@ -73,13 +74,13 @@
 						</nav>
 					</div>
 				</div>
-				
+
 				<div class="col-lg-2">
 					<div class="header-call for-des">
-						<a href="tel:<?php echo $phone_link; ?>" title="<?php echo $phone; ?>"><img src="<?php echo home_url();?>/wp-content/uploads/2022/07/phone.svg"> <span class="callus"><?php echo $phone; ?></span></a>
+						<a href="tel:<?php echo $phone_link; ?>" title="<?php echo $phone; ?>"><img src="<?php echo home_url();?>/wp-content/uploads/2022/07/phone.svg" alt="phone"> <span class="callus"><?php echo $phone; ?></span></a>
 					</div>
 					<div class="header-call-mob for-mob">
-						<a href="tel:<?php echo $phone_link; ?>" title="call"><img src="<?php echo home_url();?>/wp-content/uploads/2022/07/phone-mob.svg"></a>
+						<a href="tel:<?php echo $phone_link; ?>" title="call"><img src="<?php echo home_url();?>/wp-content/uploads/2022/07/phone-mob.svg" alt="phone-mob"></a>
 					</div>
 				</div>
 			</div>

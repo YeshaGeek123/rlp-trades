@@ -74,7 +74,7 @@
                 </div>
             </div>
         </div>
-        <div class="services-tabbing-slider">
+        <div class="services-tabbing-slider accordian">
             <?php
             if(have_rows('sub_services')):
                 while(have_rows('sub_services')): the_row();
@@ -111,6 +111,7 @@
 <!-- service sec end -->
 <!-- review section start -->
 <section class="review">
+    <div class="review-shape"></div>
     <div class="container">
         <div class="review-sec">
             <div class="row justify-content-center ">

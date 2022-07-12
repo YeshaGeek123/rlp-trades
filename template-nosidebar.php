@@ -23,6 +23,7 @@
 <!-- end of main-banner -->
 
 <div class="inner-page-text">
+    <div class="inner-page-text-shape"></div>
     <div class="container">
         <div class="row">
             <div class="col-lg-12">

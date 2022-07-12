@@ -25,6 +25,8 @@ get_header();
 			</div>
 		</div>
 		<div class="inner-page-text">
+    <div class="inner-page-text-shape"></div>
+
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -33,6 +35,7 @@ get_header();
                 </div> -->
                 <div id="primary" class="content-area">
                     <main id="main" class="site-main">
+                        <img src="<?php echo home_url();?>/wp-content/uploads/2022/07/404.png" alt="404"  width="800" height="1000">
                         <?php
                         while (have_posts()) :
                             the_post();

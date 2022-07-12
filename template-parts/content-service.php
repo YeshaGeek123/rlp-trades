@@ -1,6 +1,7 @@
 <div class="inner-page">
     <!-- banner sec start -->
-    <section class="banner inner-banner" style="background-image: url('<?php the_field('service_details_Image'); ?>');">
+    <section class="banner inner-banner" >
+    <div class="banner-shape" style="background-image: url('<?php the_field('service_details_Image'); ?>');"></div>
         <div class="container">
             <div class="row">
                 <div class="col-lg-7">
@@ -21,30 +22,31 @@
                 </div>
             </div>
         </div>
+        <!-- gallery section start -->
+        <div class="gallery">
+            <div class="gallery-shape"></div>
+            <div class="container">
+                <div class="row gallery-slider">
+                    <?php
+                        $gallery_image = get_field('service_gallery_images');
+                        if(isset($gallery_image) && !empty($gallery_image)) :
+                            $counter = 1;
+                            foreach ($gallery_image as $key => $image) :
+                    ?>
+                        <div class="gallery-img" >
+                            <a href="<?php echo $image['url']; ?>" data-fancybox="gallery" title="Gallery Image <?php echo $counter++; ?>">
+                                <div class="back-img" style="background-image: url('<?php echo $image['url']; ?>');"></div>
+                            </a>
+                        </div>
+                    <?php
+                            endforeach;
+                        endif;
+                    ?>
+                </div>
+            </div>
+        </div>
+        <!-- gallery section start -->
     </section>
     <!-- banner sec end -->
 
-    <!-- gallery section start -->
-    <div class="gallery">
-        <div class="container">
-            <div class="row gallery-slider">
-                <?php
-                    $gallery_image = get_field('service_gallery_images');
-                    if(isset($gallery_image) && !empty($gallery_image)) :
-                        $counter = 1;
-                        foreach ($gallery_image as $key => $image) :
-                ?>
-                    <div class="gallery-img" >
-                        <a href="<?php echo $image['url']; ?>" data-fancybox="gallery" title="Gallery Image <?php echo $counter++; ?>">
-                            <div class="back-img" style="background-image: url('<?php echo $image['url']; ?>');"></div>
-                        </a>
-                    </div>
-                <?php
-                        endforeach;
-                    endif;
-                ?>
-            </div>
-        </div>
-    </div>
-    <!-- gallery section start -->
 </div>

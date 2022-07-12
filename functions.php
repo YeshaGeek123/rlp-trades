@@ -153,7 +153,7 @@ function rlp_trades_scripts() {
 
 	wp_enqueue_script('rlp-trades-bootstrap', get_template_directory_uri() . '/assets/js/bootstrap.min.js', array(), '20151215', true);
 	wp_enqueue_script('rlp-trades-simplebar-js', get_template_directory_uri() . '/assets/js/simplebar.js', array(), '20151215', true);
-	wp_enqueue_script('rlp-trades-slick', get_template_directory_uri() . '/assets/js/slick.min.js', array(), '20151215', true);
+	wp_enqueue_script('rlp-trades-slick', get_template_directory_uri() . '/assets/js/slick.min.js', array(),rand(1000, 10000), true);
 	wp_enqueue_script('rlp-trades-fancybox-min', get_template_directory_uri() . '/assets/js/jquery.fancybox.min.js', array(), '20151215', true);
 	wp_enqueue_script('rlp-trades-wow-min', get_template_directory_uri() . '/assets/js/wow.min.js', array(), '20151215', true);
 	wp_enqueue_script('rlp-trades-font-awesome-min', get_template_directory_uri() . '/assets/js/font-awesome.min.js', array(), '20151215', true);
