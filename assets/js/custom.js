@@ -96,14 +96,42 @@ jQuery(document).ready(function($) {
     });
 
 
+    // Service tabbing Slider
+    jQuery('.services-tabbing-slider').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        infinite: true,
+        dots: true,
+        arrows: true,
+        // autoplay: false,
+        // autoplaySpeed: 4000,
+        prevArrow: '<button class="slide-arrow prev-arrow"><i class="fas fa-chevron-left"></i></button>',
+        nextArrow: '<button class="slide-arrow next-arrow"><i class="fas fa-chevron-right"></i></button>',
+        customPaging: function(slider, i) {
+            return jQuery(slider.$slides[i])
+                .find(".dot-title")
+                .attr("title");
+        },
+        appendDots: jQuery(".custom-dot-slider"),
+        dotsClass: "dropdown-tabbing",
+        responsive: [{
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: true,
+                    arrows: false,
 
-});
+                }
+            },
+            {
+                breakpoint: 992,
+                settings: "unslick"
+            }
+        ],
+    });
 
-
-/* Window Load and Resize JS */
-jQuery(window).on('load resize', function() {
-
-    var window_size = jQuery(window).width();
 
     if (window_size <= 991) {
         /* FAQ Page accordion */
@@ -123,43 +151,45 @@ jQuery(window).on('load resize', function() {
             dropDown.stop(false, true).slideToggle();
             j.preventDefault();
         });
-
-        $slick_class = jQuery('.services-tabbing-slider');
-        if ($slick_class.hasClass('slick-initialized')) {
-            $slick_class.slick('destroy');
-        }
-
-    } else {
-        // Service tabbing Slider
-        jQuery('.services-tabbing-slider').slick({
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            infinite: true,
-            dots: true,
-            arrows: true,
-            // autoplay: false,
-            // autoplaySpeed: 4000,
-            prevArrow: '<button class="slide-arrow prev-arrow"><i class="fas fa-chevron-left"></i></button>',
-            nextArrow: '<button class="slide-arrow next-arrow"><i class="fas fa-chevron-right"></i></button>',
-            customPaging: function(slider, i) {
-                return jQuery(slider.$slides[i])
-                    .find(".dot-title")
-                    .attr("title");
-            },
-            appendDots: jQuery(".custom-dot-slider"),
-            dotsClass: "dropdown-tabbing",
-            responsive: [{
-                breakpoint: 992,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    infinite: true,
-                    dots: true,
-                    arrows: false,
-
-                }
-            }],
-        });
     }
 
+
+
+
 });
+
+
+/* Window Load and Resize JS */
+//jQuery(window).on('load resize', function() {
+
+//var window_size = jQuery(window).width();
+
+//if (window_size <= 991) {
+// /* FAQ Page accordion */
+// jQuery('.accordian .service-content').hide();
+// jQuery('.accordian > div:eq(0) .service-accordian-title').addClass('active');
+// jQuery('.accordian > div:eq(0) .service-content').slideDown();
+
+// jQuery('.service-accordian-title').click(function(j) {
+//     var dropDown = jQuery(this).closest('.service-box').find('.service-content');
+//     jQuery(this).closest('.accordian').find('.service-content').not(dropDown).slideUp();
+//     if (jQuery(this).hasClass('active')) {
+//         jQuery(this).removeClass('active');
+//     } else {
+//         jQuery(this).closest('.accordian').find('.service-accordian-title.active').removeClass('active');
+//         jQuery(this).addClass('active');
+//     }
+//     dropDown.stop(false, true).slideToggle();
+//     j.preventDefault();
+// });
+
+//jQuery(".services-tabbing-slider").not('.slick-initialized').slick('destroy');
+// $slick_class = jQuery('.services-tabbing-slider');
+// if ($slick_class.hasClass('slick-initialized')) {
+//     $slick_class.slick('destroy');
+// }
+
+//}
+
+
+//});
