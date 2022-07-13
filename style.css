@@ -73,7 +73,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
 
-html {
+ html {
     line-height: 1.15;
     /* 1 */
     -webkit-text-size-adjust: 100%;
@@ -153,6 +153,7 @@ a {
     background-color: transparent;
     text-decoration: none !important;
     outline: none !important;
+    transition: 0.3s;
 }
 
 
@@ -1530,7 +1531,7 @@ a:hover {
     background: transparent;
     text-align: left;
     box-shadow: none;
-    display: flex;
+    display: none;
     justify-content: space-between;
     align-items: center;
     opacity: 0;
@@ -1810,14 +1811,15 @@ button.close:hover {
 .slick-arrow {
     position: absolute;
     top: 50%;
-    left: -60px;
+    left: -30px;
+    transform: translate(0,-50%);
     width: 70px;
     height: 70px;
     padding: 0;
     border: none !important;
     background: var(--white-color);
     outline: none !important;
-    color: var(--primary-color);
+    color: var(--title-color);
     font-weight: bold;
     font-size: 24px;
     transition: 0.3s;
@@ -1833,7 +1835,8 @@ button.close:hover {
 }
 
 .slick-arrow:hover {
-    background: var(--dark-color);
+    background: var(--title-color);
+    color: var(--white-color);
 }
 
 .slick-dots li:only-child {
@@ -2050,6 +2053,7 @@ button.close:hover {
     font-family: var(--title-font);
     transform: scale(1);
     text-transform: uppercase;
+    transition: 0.3s;
 }
 
 .header-menu .main-navigation li {
@@ -2060,23 +2064,40 @@ button.close:hover {
 .header-menu {
     text-align: center;
     padding-right: 150px;
+    padding-bottom: 40px;
+    transition: 0.3s;
 }
 
 .header-call {
     width: 230px;
-    max-width: 105%;
     height: 60px;
     background-color: var(--primary-color);
     display: flex !important;
     align-items: center;
     justify-content: center;
     margin-left: -60px;
+    transition: 0.3s;
+    margin-bottom: 40px;
+}
+
+.header-call:hover {
+	background: var(--orange-color);
 }
 
 .header-call a {
     color: var(--white-color);
     font-size: 25px;
     font-family: var(--title-font);
+    display: flex;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-call a img {
+	margin-right: 18px;
 }
 
 .header-menu .main-navigation li a:hover {
@@ -2104,13 +2125,23 @@ button.close:hover {
     z-index: 999;
 }
 
+.site-header.sticky_head .header-menu {
+	padding-bottom: 0;
+}
+
+.site-branding img {
+	width: 197px;
+	transition: 0.3s;
+}
+
 .site-header.sticky_head .site-branding img {
     margin-top: 10px;
-    height: 100px;
+    width: 100px;
 }
 
 .site-header.sticky_head .header-call {
     height: 130px;
+    margin-bottom: 0;
 }
 
 .sticky_head .main-navigation ul li.menu-item-has-children:hover ul {
@@ -2127,10 +2158,6 @@ button.close:hover {
 
 .sticky_head .header-menu .main-navigation li {
     padding: 0px;
-}
-
-.sticky_head .header-menu .main-navigation li a:hover {
-    color: var(--orange-color);
 }
 
 .main-navigation ul li.current-menu-item a,
@@ -2171,8 +2198,8 @@ ul.sub-menu li.current_page_item a {
     position: relative;
     padding-top: 422px;
     padding-bottom: 0;
-    background-size: cover;
-    background-position: center;
+    background-size: 2067px;
+    background-position: top center;
     background-repeat: no-repeat;
     clip-path: polygon(50% 100%, 100% calc(100% - 180px), 100% 0, 0 0, 0 calc(100% - 180px));
     -webkit-clip-path: polygon(50% 100%, 100% calc(100% - 180px), 100% 0, 0 0, 0 calc(100% - 180px));
@@ -2186,7 +2213,7 @@ ul.sub-menu li.current_page_item a {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, #141414 0, hsl(0deg 0% 0% / 0%) 77%);
+    background: linear-gradient(90deg, #141414, hsl(0deg 0% 0% / 0%) 65%);
     z-index: 1;
 }
 
@@ -2221,7 +2248,7 @@ ul.sub-menu li.current_page_item a {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(4deg, #141414 35%, hsl(0deg 0% 0% / 0%) 100%);
+    background: linear-gradient(4deg, #141414 25%, hsl(0deg 0% 0% / 0%) 70%);
     z-index: 1;
 }
 
@@ -2299,7 +2326,7 @@ ul.sub-menu li.current_page_item a {
     margin-top: 105px;
 }
 
-.service-box {
+.services-tabbing-slider {
     margin-top: 90px;
 }
 
@@ -2382,20 +2409,24 @@ ul.sub-menu li.current_page_item a {
 }
 
 .review-slider {
-    padding: 80px 0px 0 50px;
+    padding-top: 80px;
     position: relative;
 }
 
 .review-info {
     text-align: center;
-    padding: 0 80px;
+    padding: 0 125px;
+}
+
+.review-text {
+    padding: 0 10px;
+    height: 190px;
 }
 
 .review-text p {
     color: var(--white-color);
 }
 
-.author .h3-title,
 .author .h4-title {
     color: var(--white-color);
 }
@@ -2403,8 +2434,14 @@ ul.sub-menu li.current_page_item a {
 .author .h3-title {
     font-size: 25px;
     margin: 0;
+    color: var(--orange-color);
     text-transform: uppercase;
     font-weight: normal;
+    transition: 0.3s;
+}
+
+.review-slider .slick-active .author .h3-title {
+    color: var(--white-color);
 }
 
 .author .h4-title {
@@ -2414,38 +2451,32 @@ ul.sub-menu li.current_page_item a {
 }
 
 .author {
-    margin-top: 20px;
+    margin-top: 50px;
 }
 
-.review-slider .slick-list.draggable {
+.review-slider .slick-list {
     overflow: visible;
-    padding-left: 20px;
-    padding-right: 30px;
 }
 
 .review-slider .slide-arrow {
     background-color: var(--dark-color);
-    top: 110px;
     left: -20px;
     z-index: 100;
+}
+
+.review-slider .slide-arrow:hover {
+    background: var(--title-color);
 }
 
 .review ul li {
     display: inline-block;
     color: var(--primary-color);
     margin-bottom: 30px;
-}
-
-.author .h3-title {
-    color: var(--orange-color);
-}
-
-.review-slider .slick-active .author .h3-title {
-    color: var(--white-color);
+    transition: 0.3s;
 }
 
 .review-slider .slide-arrow.next-arrow.slick-arrow {
-    right: 0;
+    right: -20px;
 }
 
 .review-slider .slick-active ul li {
@@ -2496,12 +2527,6 @@ ul.sub-menu li.current_page_item a {
     width: 100%;
     height: 100%;
     background: linear-gradient(to bottom, #141414, transparent 600%);
-}
-
-.gallery-slider .slick-arrow {
-    top: 50%;
-    transform: translate(0, -60%);
-    left: -30px;
 }
 
 .gallery-img {
@@ -2561,10 +2586,23 @@ ul.sub-menu li.current_page_item a {
     line-height: 45px;
 }
 
-.social-box a,
-.social-box span {
+.footer-text p a {
+    color: var(--white-color);
+}
+
+.footer-text p a:hover,
+.footer-text.white-text p a:hover span:not(.wpcf7-form-control-wrap) {
+    color: var(--orange-color) !important;
+}
+
+.social-box a {
     color: var(--white-color);
     line-height: 25px;
+    transition: 0.3s;
+}
+
+.social-box a:hover {
+    color: var(--orange-color);
 }
 
 .social-box {
@@ -2605,6 +2643,10 @@ ul.sub-menu li.current_page_item a {
     font-size: 13px;
 }
 
+.footer-bottom-link ul li a:hover {
+    color: var(--orange-color);
+}
+
 .footer-bottom-text p {
     color: var(--white-color);
     margin-bottom: 0;
@@ -2619,6 +2661,7 @@ ul.sub-menu li.current_page_item a {
 .footer-other-link p {
     color: var(--white-color);
     font-size: 13px;
+    margin-bottom: 0;
 }
 
 .footer-other-link a {
@@ -2627,17 +2670,20 @@ ul.sub-menu li.current_page_item a {
     text-decoration: none !important;
 }
 
+.footer-other-link a:hover {
+    color: var(--orange-color);
+}
+
 .footer-top .col-lg-6 {
     padding-right: 0;
 }
 
 .footer-contact li:nth-child(3) a span {
-    display: inline-block;
+    display: block;
     margin-left: 35px;
 }
 
 .footer-contact {
-    padding-right: 160px;
     padding-left: 50px;
 }
 
@@ -3577,6 +3623,9 @@ a.prev.page-numbers {
 }
 
 @media (min-width: 1921px) {
+    .banner {
+        background-size: 2400px;
+    }
     .inner-page-text-shape {
         width: 2560px;
     }
@@ -3592,28 +3641,38 @@ a.prev.page-numbers {
     .inner-page .banner.inner-banner {
         background-size: 2210px;
     }
+    .banner {
+        background-size: 2600px;
+    }
 }
 
 @media screen and (max-width: 1499px) {
     .h1-title {
         font-size: 115px;
     }
+    .about-text {
+        padding: 255px 0 0 30px;
+    }    
     .service-info {
         padding: 0 60px;
     }
     .slick-arrow {
         left: -30px;
     }
+    .review-info {
+        padding: 0 45px;
+    }
     .review-slider .slide-arrow {
-        bottom: 150px;
-        top: auto;
-        left: 20px;
+        left: -50px;
+    }
+    .review-slider .slide-arrow.next-arrow.slick-arrow {
+        right: -50px;
     }
     .footer-top {
         margin-top: -200px;
     }
     .footer-text p {
-        padding-left: 0;
+        padding-left: 20px;
     }
     .inner-banner-content {
         padding: 0;
@@ -3625,6 +3684,7 @@ a.prev.page-numbers {
 
 @media screen and (max-width: 1199px) {
     .header-call {
+        width: 150px;
         margin: 0;
     }
     .header-call a {
@@ -3632,12 +3692,14 @@ a.prev.page-numbers {
     }
     .header-call a img {
         width: 15px;
+        margin-right: 10px;
     }
     .header-menu .main-navigation ul ul li {
         display: block;
     }
     .h1-title {
         font-size: 100px;
+        line-height: 110px;
     }
     .banner-btn .sec-btn {
         width: 230px;
@@ -3654,7 +3716,7 @@ a.prev.page-numbers {
         margin-right: 50px;
     }
     .service-info {
-        padding: 0 20px 0 60px;
+        padding: 0 0 0 60px;
     }
     .service-back {
         width: 350px;
@@ -3664,6 +3726,7 @@ a.prev.page-numbers {
     }
     .header-menu {
         padding-right: 0;
+        padding-bottom: 0;
     }
     .main-navigation ul ul:hover {
         text-align: left;
@@ -3675,11 +3738,14 @@ a.prev.page-numbers {
     .gallery-slider .slide-arrow.next-arrow.slick-arrow {
         right: -20px;
     }
-    .footer-contact {
-        padding-right: 140px;
-    }
     .contact-page .footer-text {
         padding-right: 0;
+    }
+    .footer-text {
+        padding: 30px 60px 30px 0;
+    }
+    .footer-contact {
+        padding-left: 45px;
     }
 }
 
@@ -3865,12 +3931,18 @@ a.prev.page-numbers {
         width: 70px;
         height: 80px;
         margin: 0;
-        position: absolute;
-        right: -14px;
-        top: -33px;
+        position: fixed;
+        right: 0;
+        top: 0;
         background-color: var(--orange-color);
-        padding: 22px;
     }
+	.header-call-mob a {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		height: 100%;
+	}
     .site-branding img {
         width: 200px;
         height: 45px;
@@ -3883,6 +3955,7 @@ a.prev.page-numbers {
         height: 80px;
     }
     .site-header.sticky_head .site-branding img {
+        width: 200px;
         height: auto;
         margin: 0;
     }
@@ -3905,17 +3978,21 @@ a.prev.page-numbers {
     }
     .site-id {
         text-align: center;
+        margin-bottom: 30px;
     }
     .banner-content {
         text-align: center;
         padding: 150px 0;
     }
     .banner-btn .sec-btn {
-        width: 80%;
-        margin-bottom: 30px;
+        width: 260px;
+        max-width: 100%;
+        display: flex;
+        margin: 0 auto 30px auto;
     }
     .banner-btn .sec-btn+.sec-btn {
-        margin-left: 0;
+        margin-left: auto;
+        margin-bottom: 0;
     }
     .home .banner {
         padding-top: 80px;
@@ -3983,10 +4060,12 @@ a.prev.page-numbers {
     }
     .banner-mob-bg {
         display: block;
-        padding: 200px 0;
         position: absolute;
         width: 100%;
         height: 100%;
+        background-size: 1300px;
+        background-position: 70% 0;
+        background-repeat: no-repeat;
     }
     .home .banner:after {
         display: none;
@@ -4024,7 +4103,8 @@ a.prev.page-numbers {
         background: linear-gradient(4deg, #141414 55%, hsl(0deg 0% 0% / 0%) 87%);
     }
     .about-us .title {
-        top: -50px;
+        top: -10px;
+        margin-bottom: 50px;
     }
     .about-img {
         position: relative;
@@ -4053,11 +4133,16 @@ a.prev.page-numbers {
         text-transform: uppercase;
         background-color: #213765;
         font-size: 20px;
-        padding: 17px 20px;
+        padding: 17px 30px;
+        transition: 0.3s;
+        margin-bottom: 0;
     }
     .h3-title.dot-title {
         display: none;
     }
+	.services-tabbing-slider {
+		margin-top: 40px;
+	}
     .service-box {
         background-color: var(--primary-color);
         margin-top: 0;
@@ -4067,19 +4152,22 @@ a.prev.page-numbers {
         display: none;
     }
     .service-img {
-        left: 15px;
-        height: 150px;
+        padding: 0 30px;
     }
     .service-img .back-img {
-        height: 150px;
+        height: 280px;
     }
     .service-info {
-        padding: 20px;
+        padding: 30px;
         margin-top: 0;
     }
+	.service-info p {
+		margin-bottom: 50px;
+	}
     .arrow {
-        position: relative;
-        width: 100%;
+        position: absolute;
+        top: 55px;
+        right: 0;
         display: block;
     }
     .arrow:before {
@@ -4091,6 +4179,7 @@ a.prev.page-numbers {
         height: 15px;
         transform: rotate(-45deg);
         background-color: var(--white-color);
+        transition: 0.3s;
     }
     .arrow:after {
         content: "";
@@ -4101,11 +4190,13 @@ a.prev.page-numbers {
         height: 15px;
         transform: rotate(45deg);
         background-color: var(--white-color);
+        transition: 0.3s;
     }
     h3.h3-title.service-accordian-title.active {
         background-color: var(--primary-color);
         color: var(--orange-color);
         font-size: 25px;
+        line-height: 35px;
     }
     .active .arrow:before,
     .active .arrow:after {
@@ -4136,7 +4227,8 @@ a.prev.page-numbers {
         width: 1000px;
         height: 100%;
         background: var(--input-color);
-        clip-path: polygon(50% 100%, 100% 90%, 100% 0, 0 0, 0 90%);
+        clip-path: polygon(50% 100%, 100% calc(100% - 70px), 100% 0, 0 0, 0 calc(100% - 70px));
+        -webkit-clip-path: polygon(50% 100%, 100% calc(100% - 70px), 100% 0, 0 0, 0 calc(100% - 70px));
     }
     .gallery:before {
         display: none;
@@ -4154,6 +4246,7 @@ a.prev.page-numbers {
     }
     .review-slider {
         padding-top: 90px;
+        margin-bottom: 30px !important;
     }
     .review-sec:before {
         display: none;
@@ -4175,11 +4268,12 @@ a.prev.page-numbers {
         clip-path: polygon(50% 100%, 100% 83%, 100% 0, 0 0, 0 83%);
     }
     .gallery-slider .slick-arrow {
-        left: -15px;
+        width: 50px;
+        left: 0;
         top: 50%;
     }
     .gallery-slider .slide-arrow.next-arrow.slick-arrow {
-        right: -18px;
+        right: 0;
     }
     .footer-top .col-lg-6 {
         padding-right: 15px;
@@ -4209,14 +4303,21 @@ a.prev.page-numbers {
     .contact-page .footer-contact {
         padding-right: 190px;
     }
+    .footer-text p {
+        padding-left: 0;
+    }
+    .footer-bottom-box {
+        padding: 40px 0;
+    }
 }
 
 @media screen and (max-width: 767px) {
     .banner-content {
-        padding: 80px 0;
+        padding: 135px 0;
     }
     .h1-title {
         font-size: 90px;
+        margin-bottom: 50px;
     }
     .comment-form p.comment-form-author,
     .comment-form p.comment-form-email {
@@ -4229,6 +4330,26 @@ a.prev.page-numbers {
         max-width: unset;
         width: calc(100vw - 60px);
     }
+    .review-text {
+        height: 260px;
+    }
+    .gallery-img {
+        height: 320px;
+    }
+	.gallery {
+	    padding: 125px 0 225px;
+	}
+    .footer-top {
+        margin-top: -80px;
+        padding: 220px 0 0 0;
+    }
+    
+    .footer-info {
+        padding: 72px 0 110px 0;
+    }
+	.review-slider {
+	    padding-top: 45px;
+	}
 }
 
 @media screen and (max-width: 575px) {
@@ -4242,8 +4363,8 @@ a.prev.page-numbers {
         padding-top: 10vh;
     }
     .h1-title {
-        font-size: 75px;
-        line-height: 80px;
+        font-size: 60px;
+        line-height: 70px;
     }
     .about-img {
         height: 400px;
@@ -4275,14 +4396,10 @@ a.prev.page-numbers {
         right: 6px;
     }
     .review {
-        padding-top: 20px;
+        padding-top: 100px;
     }
-    .review-info {
-        height: 370px;
-        overflow-y: auto;
-    }
-    .gallery {
-        padding-bottom: 180px;
+    .gallery .container {
+        padding: 0;
     }
     .footer-info {
         padding: 0;
@@ -4291,11 +4408,10 @@ a.prev.page-numbers {
         padding: 0;
     }
     .footer-top {
-        padding-top: 380px;
+        padding: 290px 0 112px 0;
     }
     .footer-contact {
         padding: 0;
-        padding-right: 30px;
     }
     .inner-page .banner.inner-banner {
         padding-top: 160px;
@@ -4342,13 +4458,22 @@ a.prev.page-numbers {
     .page-numbers li {
         margin-bottom: 10px;
     }
+    .arrow {
+        right: 30px;
+    }
+    .service-img .back-img {
+        height: 200px;
+    }
+	.review-info {
+		padding: 0;
+	}
 }
 
 @media screen and (max-width: 400px) {
     .container,
     .container-fluid,
     .site-header .container {
-        padding: 0 15px;
+        padding: 0 20px;
     }
     /* .site-header {
         height: 54px;
@@ -4374,24 +4499,15 @@ a.prev.page-numbers {
         height: 54px;
         padding: 14px 18px;
     } */
-    .header-call-mob {
-        width: 50px;
-        gap: 50px;
-        padding: 21px 13px;
-        right: 0;
-    }
     .menu-toggle {
         left: 15px;
     }
     .banner {
         padding-top: 50px;
     }
-    .banner-btn .sec-btn {
-        width: 100%;
-        font-size: 25px;
-    }
     .h1-title {
-        font-size: 55px;
+        font-size: 16vw;
+        line-height: 20vw;
     }
     .footer-text p {
         line-height: 30px;
@@ -4399,6 +4515,10 @@ a.prev.page-numbers {
     .h3-title.service-accordian-title {
         padding: 6px 20px;
     }
+	.arrow {
+		top: 45px;
+		right: 20px;
+	}
     .arrow:after {
         right: 0;
     }
@@ -4411,6 +4531,12 @@ a.prev.page-numbers {
     .active .arrow:before {
         right: 10px;
     }
+	.service-img {
+		padding: 0 20px;
+	}
+	.service-info {
+		padding: 30px 20px;
+	}
     .h2-title {
         font-size: 40px;
     }
@@ -4453,6 +4579,20 @@ a.prev.page-numbers {
     .common-popup-text {
         padding: 20px 15px !important;
         max-height: 75vh;
+    }
+    .about-img {
+        height: 280px;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 70px));
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 70px));
+    }
+    .service-img .back-img {
+        height: 140px;
+    }
+    .review-text {
+        height: 320px;
+    }
+    .gallery-img {
+        height: 280px;
     }
 }
 

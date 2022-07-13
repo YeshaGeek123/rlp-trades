@@ -75,9 +75,9 @@
 						</div>
 					</div>
 					<div class="col-12">
-					<div class="footer-other-link">
-								<p>Web Design , SEO &amp; Online Marketing by <a href="https://www.dotcomdesign.com" target="_blank" title="Dotcom Design" class="dotcom-link">Dotcom Design</a></p>
-							</div>
+						<div class="footer-other-link">
+							<p>Web Design &amp; Digital Marketing with <span><i class="fa fa-heart" aria-hidden="true"></i></span> by <a href="https://www.dotcomdesign.com" target="_blank" title="Dotcom Design" class="dotcom-link">Dotcom Design</a></p>
+						</div>
 					</div>
 				</div>
 			</div>

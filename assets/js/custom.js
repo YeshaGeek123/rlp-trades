@@ -14,8 +14,8 @@ jQuery(document).ready(function($) {
         rows: 0,
         autoplay: true,
         autoplaySpeed: 2000,
-        prevArrow: '<button class="slide-arrow prev-arrow"><i class="fa fa-angle-left" aria-hidden="true"></i></button>',
-        nextArrow: '<button class="slide-arrow next-arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></button>',
+        prevArrow: '<button class="slide-arrow prev-arrow"><i class="fas fa-chevron-left"></i></button>',
+        nextArrow: '<button class="slide-arrow next-arrow"><i class="fas fa-chevron-right"></i></button>',
         responsive: [{
             breakpoint: 992,
             settings: {
@@ -37,10 +37,11 @@ jQuery(document).ready(function($) {
         infinite: true,
         dots: false,
         arrows: true,
+        rows: 0,
         autoplay: true,
         swipeToSlide: true,
-        prevArrow: '<button class="slide-arrow prev-arrow"><i class="fa fa-angle-left" aria-hidden="true"></i></button>',
-        nextArrow: '<button class="slide-arrow next-arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></button>',
+        prevArrow: '<button class="slide-arrow prev-arrow"><i class="fas fa-chevron-left"></i></button>',
+        nextArrow: '<button class="slide-arrow next-arrow"><i class="fas fa-chevron-right"></i></button>',
         responsive: [{
                 breakpoint: 992,
                 settings: {
@@ -57,7 +58,6 @@ jQuery(document).ready(function($) {
                     slidesToShow: 2,
                     slidesToScroll: 1,
                     infinite: true,
-                    arrows: false,
                     dots: false,
                 }
             }
@@ -103,6 +103,7 @@ jQuery(document).ready(function($) {
         infinite: true,
         dots: true,
         arrows: true,
+        rows: 0,
         // autoplay: false,
         // autoplaySpeed: 4000,
         prevArrow: '<button class="slide-arrow prev-arrow"><i class="fas fa-chevron-left"></i></button>',

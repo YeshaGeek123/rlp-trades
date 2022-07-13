@@ -48,7 +48,7 @@
                         <h2 class="h2-title" data-title="About"><?php the_field('about_us_title'); ?></h2>
                     </div>
                 </div>
-                <div class="col-lg-5">
+                <div class="col-xl-5 col-lg-6">
                     <div class="about-text white-text">
                         <?php the_field('about_us_content'); ?>
                     </div>
@@ -164,7 +164,7 @@
     <!-- gallery section start -->
     <div class="gallery" style="background-image: url('<?php the_field('gallery_background_image'); ?>);">
         <div class="container">
-            <div class="row gallery-slider">
+            <div class="gallery-slider">
                 <?php
                     $gallery_image = get_field('gallery_images');
                     if(isset($gallery_image) && !empty($gallery_image)) :
